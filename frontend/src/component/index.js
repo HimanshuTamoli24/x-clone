@@ -20,6 +20,9 @@ import FormattingTime from "./FormattingTime/FormatTime.jsx";
 import PostDetails from "./Card/PostDetails.jsx";
 import ActionBar from "./Card/ActionBar.jsx";
 import Avatar from "./Card/Avatar.jsx";
+import ChatComponent from"./Dm/ChatComponent.jsx"
+import ChatPage from "./Dm/ChatPage.jsx";
+
 export {
     Button,
     Card,
@@ -42,5 +45,7 @@ export {
     FormattingTime, 
     PostDetails,
     ActionBar,
-    Avatar
+    Avatar,
+    ChatComponent,
+    ChatPage
 }

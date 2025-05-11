@@ -7,6 +7,7 @@ import Bookmark from "./Bookmark/Bookmark.jsx";
 import Post from "./Post/Post.jsx";
 
 import Comment from "./Comment/Comment.jsx";
+import Chat from "./Chat/Chat.jsx";
 export {
     Login,
     Signup,
@@ -16,5 +17,5 @@ export {
     Bookmark,
     Post,
     Comment,
- 
+    Chat
 }

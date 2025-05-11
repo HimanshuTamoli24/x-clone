@@ -5,6 +5,7 @@ import { Container, Input, ProfileSearch, Sidebarfooter } from '../index';
 import { getRandomUser, search } from '../../features';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaGithub } from "react-icons/fa6";
+import { resetSearchState, resetUserState } from '../../features/user/userSlice';
 function Rightsidebar() {
     const dispatch = useDispatch();
     const { searchResults, success, randomUser } = useSelector((state) => state.user);
@@ -16,6 +17,8 @@ function Rightsidebar() {
         const trimmed = data.name.trim();
         setSearchValue(trimmed);
         if (trimmed !== '') {
+            dispatch(resetSearchState())
+            dispatch(resetUserState())
             dispatch(search(trimmed));
         }
     };
@@ -56,11 +59,13 @@ function Rightsidebar() {
             </form>
 
             {searchValue && success && (
+
                 <div className='bg-black rounded-2xl mx-0.5 top-14  right-1 absolute px-3 py-3.5'>
+
                     <div className='rounded-3xl border border-gray-200/15 shadow-xs shadow-white/45 hide-scrollbar px-5 py-2 max-h-80 overflow-y-auto space-y-2'>
-                        {searchResults?.data?.map(({ userName, profileImage, bio, fullName, _id }) => (
+                        {searchResults?.data?.length > 0 ? searchResults?.data?.map(({ userName, profileImage, bio, fullName, _id }) => (
                             <Link onClick={() => setTimeout(() => setSearchValue(''), 200)}
-                                to={`/${userName}`} key={_id}>
+                                to={`${userName}`} key={_id}>
                                 <ProfileSearch
                                     userName={userName}
                                     profileImage={profileImage.url}
@@ -68,7 +73,14 @@ function Rightsidebar() {
                                     fullName={fullName}
                                 />
                             </Link>
-                        ))}
+                        )) : <div className="w-full  flex items-center justify-center">
+                            <p className="text-red-500 text-sm rounded-3xl border border-red-500 px-4 py-2">
+                                No user exists with this name!!!
+                            </p>
+                        </div>
+
+
+                        }
                     </div>
                 </div>
             )}
@@ -85,7 +97,7 @@ function Rightsidebar() {
                             rel="noopener noreferrer"
                             className="text-xs text-blue-400 flex mt-2.5  gap-x-1.5 items-center hover:text-blue-500"
                         >
-                            Source Code (No Elon Here) <FaGithub />
+                            <FaGithub />  Source Code (No Elon Here)
                         </a>
                     </div>
                 </div>
@@ -101,7 +113,7 @@ function Rightsidebar() {
                             rel="noopener noreferrer"
                             className="text-xs text-blue-400 flex items-center gap-x-1.5 hover:text-blue-500"
                         >
-                            Aryan – Your New Favorite Coders (Probably) <FaGithub />
+                            <FaGithub /> Aryan – Your New Favorite Coders (Probably)
                         </a>
                         <a
                             href="https://github.com/HimanshuTamoli24/x-clone"
@@ -109,7 +121,7 @@ function Rightsidebar() {
                             rel="noopener noreferrer"
                             className="text-xs text-blue-400 flex items-center gap-x-1.5 hover:text-blue-500"
                         >
-                            Himanshu – Professional Ctrl+C / Ctrl+V Expert <FaGithub />
+                            <FaGithub /> Himanshu – Professional Ctrl+C / Ctrl+V Expert
                         </a>
                     </div>
 

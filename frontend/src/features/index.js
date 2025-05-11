@@ -20,6 +20,9 @@ import bookmarkReducer from "./bookmark/bookmarkSlice"
 // comment
 import commentReducer, { createComment, updateComment, deleteComment, getAllPostComments, getCommentReplies, createReplyComment, getComment, getAllUserComment } from "./comment/commentSlice"
 
+import chatReducer, { accessChat, fetchChat ,setSelectedChat} from "./chat/chatSlice"
+
+import messageReducer,{getAllMessages,sendMessage,clearMessages,addMessageRealtime} from "./message/messageSlice"
 export {
     authReducer,
     loginUser,
@@ -60,4 +63,17 @@ export {
     bookmarkReducer,
     postReducer,
     subscriptionReducer,
+
+    chatReducer,
+    accessChat,
+    fetchChat,
+    setSelectedChat,
+
+    messageReducer,
+    clearMessages,
+    getAllMessages,
+    sendMessage,
+    addMessageRealtime
+
+    
 }
