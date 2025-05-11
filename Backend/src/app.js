@@ -55,7 +55,8 @@ import likeRouter from './routes/like.routes.js';
 import commentRouter from './routes/comment.routes.js';
 import subscriptionRouter from "./routes/subscription.routes.js";
 import bookmarkRouter from "./routes/bookmark.routes.js";
-
+import chatRouter from "./routes/chat.routes.js"
+import messageRouter from "./routes/message.routes.js"
 // Add routes
 app.use("/api/v1/users", UserRouter);
 app.use("/api/v1/post", postRouter);
@@ -63,6 +64,8 @@ app.use("/api/v1/like", likeRouter);
 app.use("/api/v1/comment", commentRouter);
 app.use("/api/v1/subscription", subscriptionRouter);
 app.use("/api/v1/bookmark", bookmarkRouter);
+app.use("/api/v1/chat", chatRouter);
+app.use("/api/v1/message", messageRouter);
 
 
 
